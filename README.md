@@ -1,4 +1,4 @@
-#Sampling Assignment
+# Sampling Assignment
 
 We employed sampling strategies on a credit card fraud detection dataset in this Python code, then applied multiple ML models to the dataset to see which model-sampling strategy combo gave us the best accuracy.
 
