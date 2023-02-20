@@ -1,14 +1,28 @@
-Random Under-Sampling:
-This method randomly removes samples from the majority class to balance the class distribution. The RandomUnderSampler class from the imblearn library is used for this purpose, and the parameter sampling_strategy='majority' specifies that the majority class should be under-sampled to match the size of the minority class.
+#Sampling Assignment
 
-Random Over-Sampling: 
-This method randomly duplicates samples from the minority class to balance the class distribution. The RandomOverSampler class from the imblearn library is used for this purpose, and the parameter sampling_strategy='minority' specifies that the minority class should be over-sampled to match the size of the majority class.
+We employed sampling strategies on a credit card fraud detection dataset in this Python code, then applied multiple ML models to the dataset to see which model-sampling strategy combo gave us the best accuracy.
 
-SMOTE: 
-This method generates synthetic samples from the minority class by interpolating between neighboring samples. The SMOTE (Synthetic Minority Over-sampling Technique) class from the imblearn library is used for this purpose, and the parameter sampling_strategy='minority' specifies that the minority class should be over-sampled.
+The following five sampling techniques were employed:
+1. Random Under Sampler (Sampling 1)
+2. Random Over Sampler (Sampling 2)
+3. TOMEK links (Sampling 3)
+4. Near Miss (Sampling 4)
+5. SMOTE (Sampling 5)
 
-Tomek Links: 
-This method removes samples that form "Tomek links" between the two classes, i.e., pairs of samples from different classes that are closest to each other. The TomekLinks class from the imblearn library is used for this purpose, and the parameter sampling_strategy='majority' specifies that the majority class should be down-sampled to remove Tomek links.
+The following formula was used to calculate the sample size: 
+![image](https://user-images.githubusercontent.com/76558062/220184739-cfdc6f01-6ed3-48c5-8486-7a21509d48eb.png)
 
-NearMiss: 
-This method selects samples from the majority class that are closest to the minority class, based on a specified version of the NearMiss algorithm. The NearMiss class from the imblearn library is used for this purpose, and the parameter version=3 specifies the version of the NearMiss algorithm to use, while n_neighbors=3 specifies the number of nearest neighbors to consider when selecting samples.
+Z-score taken as 1.96 for the 95% confidence interval, P taken as 0.5 for a balanced dataset, Margin of Error taken as 0.1 for a sample size of 1000.
+
+For the sampled dataset, the following 5 models were used:
+1. Logistic Regression (Model 1)
+2. Extra Tree Classifier (Model 2)
+3. Random Forest Classifier (Model 3)
+4. Support Vector Classifier (SVC) (Model 4)
+5. Decision Tree Classifier (Model 5)
+
+The following results were obtained after running the code:
+(The decimals represents Accuracy Score)
+![image](https://user-images.githubusercontent.com/76558062/220185643-e7df0ec4-c456-40a1-8beb-ec339f3e9341.png)
+
+Random Over Sampler, SMOTE and TOMEK links gave best result (that is 99.35%) when applied on Random Forest Classifier, Support Vector Classifier, Extra Tree Classifier.
